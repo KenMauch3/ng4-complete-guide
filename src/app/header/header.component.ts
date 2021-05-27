@@ -8,13 +8,9 @@ import { Component, EventEmitter, Output } from "@angular/core";
 export class HeaderComponent{
     collapsed = true;
 
-    @Output() navigatedTo = new EventEmitter<String>();
+    @Output() navigatedTo = new EventEmitter<string>();
 
-    onClickRecipes() {
-        this.navigatedTo.emit("Recipes");
-    }
-
-    onClickShoppingList() {
-        this.navigatedTo.emit("Shopping List");
+    onSelect(location: string){
+        this.navigatedTo.emit(location);
     }
 }
