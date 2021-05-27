@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  showRecipes: boolean = false;
+  showShoppingList: boolean = false;
+  @Input() navigatedTo(location: String){
+    if(location === "Recipes"){
+      this.showRecipes = true;
+      this.showShoppingList = false;
+    } else if(location === "Shopping List"){
+      this.showRecipes = false;
+      this.showShoppingList = true;
+    }
+  }
 }
